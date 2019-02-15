@@ -1,3 +1,15 @@
+<my-magic-header [title]="type"></my-magic-header>
 <p>
-  card-list works!
+  Vous cherchez une carte de type {{type}}.
 </p>
+<section fxLayout="row wrap" fxLayoutAlign="center">
+  <ng-container *ngFor="let value of cards">
+      <img [src]="value.imageUrl" *ngIf="value.imageUrl"
+      [routerLink]="['/cards', value.id]"
+      fxFlex.xs="50"
+      fxFlex.sm="33"
+      fxFlex.md="25"
+      fxFlex.lg="10"
+      fxFlex.xl="10"/>
+  </ng-container>
+</section>

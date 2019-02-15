@@ -1,0 +1,23 @@
+:host {
+    h1 {
+        text-align: center;
+    }
+    mat-toolbar {
+        position: relative;
+        z-index: 9;
+    }
+    #header_id {
+        // margin-left: auto;
+        // margin-right: auto;
+        text-align: center;
+        background: url(../../assets/background_magic.jpg) no-repeat;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+    }
+    .spacer-right {
+        position: absolute;
+        right: 2em;
+        margin: 0;
+    }
+}

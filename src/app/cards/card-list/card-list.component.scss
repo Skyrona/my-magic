@@ -1,0 +1,9 @@
+:host {
+    img {
+        cursor: pointer;
+    }
+    img:hover {
+        opacity: .8;
+        transform: scale(1.1);
+    }
+}

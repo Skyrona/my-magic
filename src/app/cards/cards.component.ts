@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'my-magic-cards',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  public title: string;
+  public query: string;
+  
+  constructor(
+    private activeRoute: ActivatedRoute) {
+    this.title = "My Magic";
+    this.query = null;
   }
-
+  ngOnInit() {
+    if (null === this.query) {      
+      this.activeRoute.url.subscribe(
+        () =>{
+          this.query = this.activeRoute.snapshot.params["query"];
+        }
+      )
+    };
+  }
 }

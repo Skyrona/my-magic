@@ -1,7 +1,32 @@
-<p>
-  cards works!
-  <my-magic-card-list></my-magic-card-list>
-  <my-magic-header></my-magic-header>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #drawer mode="push" fixedInViewport="fixed" [autoFocus]="false">
+    <my-magic-type-list></my-magic-type-list>
+  </mat-sidenav>
 
-  <button mat-raised-button color="primary">Primary</button>
-</p>
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary" class="mat-elevation-z8" fullscreen>
+      <mat-toolbar-row>
+        <button mat-flat-button color="primary" (click)="drawer.toggle()">
+          <mat-icon>
+            menu
+          </mat-icon>
+        </button>
+        <h1>{{title}}</h1>
+
+        <button mat-flat-button color="primary" class="spacer-right" [routerLink]="['/', '']">
+          <mat-icon>
+            home
+          </mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <my-magic-card *ngIf="query && -1!== query.indexOf('-'); else cardList" [id]="query"></my-magic-card>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<ng-template #cardList>
+  <my-magic-card-list [type]="query"></my-magic-card-list>
+</ng-template>
