@@ -10,6 +10,8 @@ import {
   MatListModule,
   MatGridListModule,
   MatCardModule,
+  MatDialogModule,
+  MatProgressSpinnerModule,
 } from '@angular/material';
 
 
@@ -25,6 +27,8 @@ import {
     MatListModule,
     MatGridListModule,
     MatCardModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -35,6 +39,8 @@ import {
     MatListModule,
     MatGridListModule,
     MatCardModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

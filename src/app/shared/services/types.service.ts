@@ -34,4 +34,7 @@ export class TypesService {
     return -1 !== this.types.indexOf(type);
   }
 
+  randType():string{
+    return this.types[Math.random()*this.types.length];
+  }
 }

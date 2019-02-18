@@ -16,5 +16,19 @@
         position: absolute;
         right: 2em;
         margin: 0;
-      }
+    }
+    .spinner {
+        background-color: rgba(#000,0.3);
+        height:100%;
+        width:100%;
+        mat-spinner {
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            position: fixed;
+        }
+    }
 }

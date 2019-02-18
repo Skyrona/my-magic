@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, } from '@angular/core';
 import { TypesService } from 'src/app/shared/services/types.service';
 
 @Component({
@@ -7,17 +7,22 @@ import { TypesService } from 'src/app/shared/services/types.service';
   styleUrls: ['./type-list.component.scss']
 })
 export class TypeListComponent implements OnInit {
+
+  @Output() onTypeSelected: EventEmitter<string>;
+
   public listType: string[];
 
   constructor(private typesService: TypesService) {
-
-    // this.listType = [];
+    this.onTypeSelected = new EventEmitter();
   }
   ngOnInit() {
     this.typesService.getTypes().subscribe(
-      (data:string[])=>{this.listType=data},
-      ()=>{}
+      (data: string[]) => { this.listType = data },
+      () => { }
     )
+  }
+  onClickType(clickedType: string) {
+    this.onTypeSelected.emit(clickedType);
   }
 }
 

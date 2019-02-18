@@ -1,6 +1,6 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav #drawer mode="push" fixedInViewport="fixed" [autoFocus]="false">
-    <my-magic-type-list></my-magic-type-list>
+    <my-magic-type-list (onTypeSelected)="drawer.toggle()"></my-magic-type-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -21,12 +21,16 @@
         </button>
       </mat-toolbar-row>
     </mat-toolbar>
+
+    <div class="spinner"*ngIf="isLoading">
+      <mat-spinner ></mat-spinner>
+    </div>
+    
     <my-magic-card *ngIf="query && -1!== query.indexOf('-'); else cardList" [id]="query"></my-magic-card>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-
 <ng-template #cardList>
-  <my-magic-card-list [type]="query"></my-magic-card-list>
+  <my-magic-card-list [type]="query" (onBeforeCards)="toggleLoading()" (onCards)="toggleLoading()"></my-magic-card-list>
 </ng-template>

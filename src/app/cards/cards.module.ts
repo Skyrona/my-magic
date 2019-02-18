@@ -9,6 +9,7 @@ import { CardComponent } from './card/card.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { CardsRoutingModule } from './cards-routing.module';
 import { TypeListComponent } from './type-list/type-list.component';
+import { CardDialogComponent } from './card-dialog/card-dialog.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TypeListComponent } from './type-list/type-list.component';
     CardListComponent,
     CardComponent,
     HeaderComponent,
-    TypeListComponent],
+    TypeListComponent,
+    CardDialogComponent],
 
   imports: [
     CommonModule,
@@ -27,5 +29,7 @@ import { TypeListComponent } from './type-list/type-list.component';
   exports: [
     CardsComponent
   ],
+
+  entryComponents: [CardDialogComponent]
 })
 export class CardsModule { }

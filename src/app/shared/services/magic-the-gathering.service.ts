@@ -18,8 +18,8 @@ export class MagicTheGatheringService {
     return this.http.get<CardListModel>(`https://api.magicthegathering.io/v1/cards?type=${type}`)
   }
 
-  getCards() {
-
+  getCards(type: string): Observable<CardListModel> {
+    return this.http.get<CardListModel>(`https://api.magicthegathering.io/v1/cards?type=${type}`)
   }
 
 }

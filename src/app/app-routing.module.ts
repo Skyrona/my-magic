@@ -5,6 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 // import { CardComponent } from "./cards/card/card.component";
 
 const routes: Routes = [
+  {
+    path : '**', redirectTo : 'home'
+  }
 ];
 
 @NgModule({

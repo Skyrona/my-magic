@@ -5,7 +5,7 @@
 <section fxLayout="row wrap" fxLayoutAlign="center">
   <ng-container *ngFor="let value of cards">
       <img [src]="value.imageUrl" *ngIf="value.imageUrl"
-      [routerLink]="['/cards', value.id]"
+      (click)="openDialog(value.imageUrl)"
       fxFlex.xs="50"
       fxFlex.sm="33"
       fxFlex.md="25"
@@ -13,3 +13,5 @@
       fxFlex.xl="10"/>
   </ng-container>
 </section>
+
+<!-- [routerLink]="['/cards', value.id]" -->

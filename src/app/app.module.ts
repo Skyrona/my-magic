@@ -7,7 +7,6 @@ import { CardsModule } from './cards/cards.module';
 import { DeckModule } from './deck/deck.module';
 import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
     CardsModule,
     DeckModule,
     HomeModule,
-    SharedModule,
     AppRoutingModule
   ],
   providers: [],
