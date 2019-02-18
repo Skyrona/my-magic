@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeckComponent implements OnInit {
 
+  public deck:string[];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onClickCard(imageUrl:string){
+    this.deck.push(imageUrl);
   }
 
 }

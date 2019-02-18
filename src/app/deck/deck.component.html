@@ -1,3 +1,11 @@
-<p>
-  deck works!
-</p>
+<section fxLayout="row wrap" fxLayoutAlign="center">
+  <ng-container *ngFor="let value of deck">
+      <img [src]="value" *ngIf="value"
+      (click)="openDialog(value)"
+      fxFlex.xs="50"
+      fxFlex.sm="33"
+      fxFlex.md="25"
+      fxFlex.lg="10"
+      fxFlex.xl="10"/>
+  </ng-container>
+</section>

@@ -9,11 +9,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 export class CardDialogComponent implements OnInit {
 
   public image: string;
+  public id: string;
 
   constructor(
     private dialogRef: MatDialogRef<CardDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data) {
     this.image = data.url;
+    this.id = data.id;
   }
 
   ngOnInit() {
