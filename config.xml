@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.angulartocordova.app" version="1.0.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>AngularToCordova</name>
+    <name>Magic</name>
     <description>Angular to Cordova</description>
     <content src="index.html" />
     <access origin="*" />

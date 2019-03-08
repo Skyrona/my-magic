@@ -44,7 +44,7 @@ __webpack_require__.r(__webpack_exports__);
 // import { CardComponent } from "./cards/card/card.component";
 var routes = [
     {
-        path: '**', redirectTo: 'cards'
+        path: '**', redirectTo: 'home'
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -184,7 +184,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<img [src]=\"image\"/>\n"
+module.exports = "<img [src]=\"image\"/><br>\r\n\r\n<button mat-button color=\"primary\">Ajouter au deck</button>\r\n"
 
 /***/ }),
 
@@ -195,7 +195,7 @@ module.exports = "<img [src]=\"image\"/>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host mat-dialog-container {\n  height: 80% !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2FyZHMvY2FyZC1kaWFsb2cvQzpcXFVzZXJzXFxBZG1pbmlzdHJhdGV1clxcRGVza3RvcFxcZm9ybWF0aW9uLWFuZ3VsYXJcXG15LW1hZ2ljL3NyY1xcYXBwXFxjYXJkc1xcY2FyZC1kaWFsb2dcXGNhcmQtZGlhbG9nLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRVEsc0JBQXFCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9jYXJkcy9jYXJkLWRpYWxvZy9jYXJkLWRpYWxvZy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0e1xyXG4gICAgbWF0LWRpYWxvZy1jb250YWluZXJ7XHJcbiAgICAgICAgaGVpZ2h0OjgwJSAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG59Il19 */"
+module.exports = ":host img {\n  width: auto; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2FyZHMvY2FyZC1kaWFsb2cvQzpcXFVzZXJzXFxBZG1pbmlzdHJhdGV1clxcRGVza3RvcFxcZm9ybWF0aW9uLWFuZ3VsYXJcXG15LW1hZ2ljL3NyY1xcYXBwXFxjYXJkc1xcY2FyZC1kaWFsb2dcXGNhcmQtZGlhbG9nLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR1EsV0FBVSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvY2FyZHMvY2FyZC1kaWFsb2cvY2FyZC1kaWFsb2cuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdHtcclxuICAgIGltZ3tcclxuICAgICAgICAvLyBoZWlnaHQ6ODAwcHggIWltcG9ydGFudDtcclxuICAgICAgICB3aWR0aDphdXRvO1xyXG4gICAgfVxyXG59Il19 */"
 
 /***/ }),
 
@@ -219,6 +219,7 @@ var CardDialogComponent = /** @class */ (function () {
     function CardDialogComponent(dialogRef, data) {
         this.dialogRef = dialogRef;
         this.image = data.url;
+        this.id = data.id;
     }
     CardDialogComponent.prototype.ngOnInit = function () {
     };
@@ -479,7 +480,7 @@ var CardsRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container fullscreen>\n  <mat-sidenav #drawer mode=\"push\" fixedInViewport=\"fixed\" [autoFocus]=\"false\">\n    <my-magic-type-list (onTypeSelected)=\"drawer.toggle()\"></my-magic-type-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n\n    <mat-toolbar color=\"primary\" class=\"mat-elevation-z8\" fullscreen>\n      <mat-toolbar-row>\n        <button mat-flat-button color=\"primary\" (click)=\"drawer.toggle()\">\n          <mat-icon>\n            menu\n          </mat-icon>\n        </button>\n        <h1>{{title}}</h1>\n\n        <button mat-flat-button color=\"primary\" class=\"spacer-right\" [routerLink]=\"['/', '']\">\n          <mat-icon>\n            home\n          </mat-icon>\n        </button>\n      </mat-toolbar-row>\n    </mat-toolbar>\n    <mat-spinner *ngIf=\"isLoading\"></mat-spinner>\n    <my-magic-card *ngIf=\"query && -1!== query.indexOf('-'); else cardList\" [id]=\"query\"></my-magic-card>\n\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n<ng-template #cardList>\n  <my-magic-card-list [type]=\"query\" (onBeforeCards)=\"toggleLoading()\" (onCards)=\"toggleLoading()\"></my-magic-card-list>\n</ng-template>"
+module.exports = "<mat-sidenav-container fullscreen>\n  <mat-sidenav #drawer mode=\"push\" fixedInViewport=\"fixed\" [autoFocus]=\"false\">\n    <my-magic-type-list (onTypeSelected)=\"drawer.toggle()\"></my-magic-type-list>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n\n    <mat-toolbar color=\"primary\" class=\"mat-elevation-z8\" fullscreen>\n      <mat-toolbar-row>\n        <button mat-flat-button color=\"primary\" (click)=\"drawer.toggle()\">\n          <mat-icon>\n            menu\n          </mat-icon>\n        </button>\n        <h1>{{title}}</h1>\n\n        <button mat-flat-button color=\"primary\" class=\"spacer-right\" [routerLink]=\"['/', '']\">\n          <mat-icon>\n            home\n          </mat-icon>\n        </button>\n      </mat-toolbar-row>\n    </mat-toolbar>\n\n    <div class=\"spinner\"*ngIf=\"isLoading\">\n      <mat-spinner ></mat-spinner>\n    </div>\n    \n    <my-magic-card *ngIf=\"query && -1!== query.indexOf('-'); else cardList\" [id]=\"query\"></my-magic-card>\n\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n<ng-template #cardList>\n  <my-magic-card-list [type]=\"query\" (onBeforeCards)=\"toggleLoading()\" (onCards)=\"toggleLoading()\"></my-magic-card-list>\n</ng-template>"
 
 /***/ }),
 
@@ -490,7 +491,7 @@ module.exports = "<mat-sidenav-container fullscreen>\n  <mat-sidenav #drawer mod
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host mat-toolbar {\n  position: relative;\n  z-index: 9; }\n\n:host mat-drawer-container {\n  height: 100%; }\n\n:host mat-nav-list {\n  overflow-x: hidden; }\n\n:host mat-nav-list [mat-list-item] {\n    min-width: 10em; }\n\n:host .spacer-right {\n  position: absolute;\n  right: 2em;\n  margin: 0; }\n\n:host mat-spinner {\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%); }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2FyZHMvQzpcXFVzZXJzXFxBZG1pbmlzdHJhdGV1clxcRGVza3RvcFxcZm9ybWF0aW9uLWFuZ3VsYXJcXG15LW1hZ2ljL3NyY1xcYXBwXFxjYXJkc1xcY2FyZHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFUSxrQkFBa0I7RUFDbEIsVUFBVSxFQUFBOztBQUhsQjtFQU1RLFlBQVksRUFBQTs7QUFOcEI7RUFTUSxrQkFBa0IsRUFBQTs7QUFUMUI7SUFXWSxlQUFlLEVBQUE7O0FBWDNCO0VBZVEsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixTQUFTLEVBQUE7O0FBakJqQjtFQW9CUSxRQUFPO0VBQ1AsU0FBUTtFQUNSLG1DQUEyQjtVQUEzQiwyQkFBMkIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NhcmRzL2NhcmRzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgbWF0LXRvb2xiYXIge1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgICB6LWluZGV4OiA5O1xyXG4gICAgfVxyXG4gICAgbWF0LWRyYXdlci1jb250YWluZXIge1xyXG4gICAgICAgIGhlaWdodDogMTAwJTtcclxuICAgIH1cclxuICAgIG1hdC1uYXYtbGlzdCB7XHJcbiAgICAgICAgb3ZlcmZsb3cteDogaGlkZGVuO1xyXG4gICAgICAgIFttYXQtbGlzdC1pdGVtXSB7XHJcbiAgICAgICAgICAgIG1pbi13aWR0aDogMTBlbTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbiAgICAuc3BhY2VyLXJpZ2h0IHtcclxuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgcmlnaHQ6IDJlbTtcclxuICAgICAgICBtYXJnaW46IDA7XHJcbiAgICB9XHJcbiAgICBtYXQtc3Bpbm5lcntcclxuICAgICAgICB0b3A6NTAlO1xyXG4gICAgICAgIGxlZnQ6NTAlO1xyXG4gICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKVxyXG4gICAgfVxyXG59Il19 */"
+module.exports = ":host mat-toolbar {\n  position: relative;\n  z-index: 9; }\n\n:host mat-drawer-container {\n  height: 100%; }\n\n:host mat-nav-list {\n  overflow-x: hidden; }\n\n:host mat-nav-list [mat-list-item] {\n    min-width: 10em; }\n\n:host .spacer-right {\n  position: absolute;\n  right: 2em;\n  margin: 0; }\n\n:host .spinner {\n  background-color: rgba(0, 0, 0, 0.3);\n  height: 100%;\n  width: 100%; }\n\n:host .spinner mat-spinner {\n    margin: auto;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    display: block;\n    position: fixed; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2FyZHMvQzpcXFVzZXJzXFxBZG1pbmlzdHJhdGV1clxcRGVza3RvcFxcZm9ybWF0aW9uLWFuZ3VsYXJcXG15LW1hZ2ljL3NyY1xcYXBwXFxjYXJkc1xcY2FyZHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFUSxrQkFBa0I7RUFDbEIsVUFBVSxFQUFBOztBQUhsQjtFQU1RLFlBQVksRUFBQTs7QUFOcEI7RUFTUSxrQkFBa0IsRUFBQTs7QUFUMUI7SUFXWSxlQUFlLEVBQUE7O0FBWDNCO0VBZVEsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixTQUFTLEVBQUE7O0FBakJqQjtFQW9CUSxvQ0FBMkI7RUFDM0IsWUFBVztFQUNYLFdBQVUsRUFBQTs7QUF0QmxCO0lBd0JZLFlBQVk7SUFDWixNQUFNO0lBQ04sU0FBUztJQUNULE9BQU87SUFDUCxRQUFRO0lBQ1IsY0FBYztJQUNkLGVBQWUsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NhcmRzL2NhcmRzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgbWF0LXRvb2xiYXIge1xyXG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgICAgICB6LWluZGV4OiA5O1xyXG4gICAgfVxyXG4gICAgbWF0LWRyYXdlci1jb250YWluZXIge1xyXG4gICAgICAgIGhlaWdodDogMTAwJTtcclxuICAgIH1cclxuICAgIG1hdC1uYXYtbGlzdCB7XHJcbiAgICAgICAgb3ZlcmZsb3cteDogaGlkZGVuO1xyXG4gICAgICAgIFttYXQtbGlzdC1pdGVtXSB7XHJcbiAgICAgICAgICAgIG1pbi13aWR0aDogMTBlbTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbiAgICAuc3BhY2VyLXJpZ2h0IHtcclxuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgcmlnaHQ6IDJlbTtcclxuICAgICAgICBtYXJnaW46IDA7XHJcbiAgICB9XHJcbiAgICAuc3Bpbm5lciB7XHJcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgjMDAwLDAuMyk7XHJcbiAgICAgICAgaGVpZ2h0OjEwMCU7XHJcbiAgICAgICAgd2lkdGg6MTAwJTtcclxuICAgICAgICBtYXQtc3Bpbm5lciB7XHJcbiAgICAgICAgICAgIG1hcmdpbjogYXV0bztcclxuICAgICAgICAgICAgdG9wOiAwO1xyXG4gICAgICAgICAgICBib3R0b206IDA7XHJcbiAgICAgICAgICAgIGxlZnQ6IDA7XHJcbiAgICAgICAgICAgIHJpZ2h0OiAwO1xyXG4gICAgICAgICAgICBkaXNwbGF5OiBibG9jaztcclxuICAgICAgICAgICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxufSJdfQ== */"
 
 /***/ }),
 
@@ -747,7 +748,7 @@ var TypeListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  deck works!\n</p>\n"
+module.exports = "<section fxLayout=\"row wrap\" fxLayoutAlign=\"center\">\r\n  <ng-container *ngFor=\"let value of deck\">\r\n      <img [src]=\"value\" *ngIf=\"value\"\r\n      (click)=\"openDialog(value)\"\r\n      fxFlex.xs=\"50\"\r\n      fxFlex.sm=\"33\"\r\n      fxFlex.md=\"25\"\r\n      fxFlex.lg=\"10\"\r\n      fxFlex.xl=\"10\"/>\r\n  </ng-container>\r\n</section>"
 
 /***/ }),
 
@@ -780,6 +781,9 @@ var DeckComponent = /** @class */ (function () {
     function DeckComponent() {
     }
     DeckComponent.prototype.ngOnInit = function () {
+    };
+    DeckComponent.prototype.onClickCard = function (imageUrl) {
+        this.deck.push(imageUrl);
     };
     DeckComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -849,12 +853,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
+
 
 
 
 
 var routes = [
-// { path: "home", component: HomeComponent},
+    { path: "home", component: _home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
 ];
 var HomeRoutingModule = /** @class */ (function () {
     function HomeRoutingModule() {
